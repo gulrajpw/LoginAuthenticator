@@ -18,7 +18,7 @@ Content-type: text/html
 
 <center>
 
-<h1 style="font-family:verdana;"> Login Authenticaticator </h1>
+<h1 style="font-family:verdana;"> Login Authenticator </h1>
 
 </center>
 
