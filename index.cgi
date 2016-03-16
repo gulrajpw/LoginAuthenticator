@@ -5,7 +5,8 @@ use warnings;
 #Pass form information to .pl file containing the actual encryption
 #background from http://www.pacifymind.net/nature-blur-desktop-background-10334/
 
-#Pass the data to backend.pl
+#Check login info against database
+#Redirect to Registration page to add entries to the database
 
 
 print <<EOT;
