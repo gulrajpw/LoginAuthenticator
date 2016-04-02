@@ -52,6 +52,15 @@ Content-type: text/html
 	<br>
 
 </form>
+<form action= index.cgi>
+<center>
+<button type="submit" value="redirect"> Back to Login </button>
+</center>
+</form>
+
+
+
+
 
 </body>
 

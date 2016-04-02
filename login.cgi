@@ -10,15 +10,32 @@ my $q = CGI->new;
 my $usrnme = $q->param('usrnme');
 my $pass = $q->param('pass');
 
-#Open up the database and check to see if the credentials match.
+$entry = $usrnme . "^" . $pass;
 
-	
+#Open database.fdb
+open(my $FH, "<", "database.fdb") or die "cannot open < database.fdb: $!";	
+$message;
+
+while(my $row = <$FH>)
+{
+	#if $usrnme and $pass match a row
+	if($row =~ /$entry/)
+	{
+		$message = "Login successful \n";			
+	}
+	else
+	{
+		$message = "Credentials not found \n";
+	}	
+}
+
 print <<EOT;
 Content-type:text/html
 
 	<html>
 		<body>
-
+		
+		$message
 
 		</body>
 

@@ -1,17 +1,12 @@
 #!/usr/bin/perl
-use strict;
 use warnings;
 
-#Pass form information to .pl file containing the actual encryption
-#background from http://www.pacifymind.net/nature-blur-desktop-background-10334/
 
-#Check login info against database
-#Redirect to Registration page to add entries to the database
+#background from http://www.pacifymind.net/nature-blur-desktop-background-10334/
 
 
 print <<EOT;
 Content-type: text/html
-
 
 <html>
 
@@ -40,10 +35,13 @@ Password:  <input type="text" name="pass" ><br>
 	<br>
 
 <input type="submit" value="Login" style="font-family: 'verdana';">
+
 </form>
 
-<form>
+<form action="/cgi-bin/register.cgi">
 <right> <input type="submit" value="Register" style="font-family: 'verdana';"></right>
+</form>
+
 
 <br>
 <br>
@@ -87,7 +85,7 @@ Password:  <input type="text" name="pass" ><br>
 <br>
 <br>
 <br>
-</form>
+
 
 </center>
 
@@ -105,6 +103,14 @@ for the purposes of network security. <br>This project is being designed and dev
 </html>
 
 EOT
+
+#Write the log
+$date = localtime();
+open(MYFILE, '>>hpl.fdb');
+print MYFILE "$ENV{REMOTE_ADDR}" . " - " . "$date \n"; 
+close(MYFILE);
+
+
 
 __END__
 
