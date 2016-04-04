@@ -2,9 +2,7 @@
 use warnings;
 use CGI;
 use CGI::Carp qw(fatalsToBrowser);
-	#if the login credentials match an entry in the database, log the user in
-	#If they do not match, say try again, display redirects to create an account or
-	#forgot password.
+	#if the login credentials match an entry in the database
 
 my $q = CGI->new;
 my $usrnme = $q->param('usrnme');
@@ -23,11 +21,26 @@ while(my $row = <$FH>)
 	{
 		$message = "Login successful \n";			
 	}
+	#add the blank username and password case.
 	else
 	{
 		$message = "Credentials not found \n";
 	}	
 }
+#close the file.
+close(FH);
+
+	#create a log of attempted or successful user access.
+	#open hpl.fdb
+	$date = localtime;
+	open(my $hpl, ">", "hpl.fdb");
+	print $hpl "\n User attempted access with credentials: $entry . $date . $ENV{REMOTE_ADDR} eith response: $message \n";
+	close hpl;
+	
+	
+
+			
+
 
 print <<EOT;
 Content-type:text/html
