@@ -8,16 +8,17 @@ my $q = CGI->new;
 my $usrnme = $q->param('usrnme');
 my $pass = $q->param('pass');
 
-$entry = $usrnme . "^" . $pass;
+$entry =$usrnme . "^" . $pass;
 
 #Open database.fdb
 open(my $FH, "<", "database.fdb") or die "cannot open < database.fdb: $!";	
 $message;
 
-while(my $row = <$FH>)
+while(<$FH>)
 {
 	#if $usrnme and $pass match a row
-	if($row =~ /$entry/)
+	#if($row =~ /$entry/)
+	if(index($_, $entry) != -1)
 	{
 		$message = "Login successful \n";			
 	}

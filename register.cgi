@@ -70,9 +70,17 @@ Content-type: text/html
 
 
 EOT
-
+	
 	open(MYFILE, '>>database.fdb');
+
+	$entry = "$username". "^" . "$password";
+	
+
         print MYFILE "$username". "^" . "$password" . "\n";
         close(MYFILE);
+	
+	#encrypt the file.
+
+
 
 __EOT__

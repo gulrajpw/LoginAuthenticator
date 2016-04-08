@@ -29,9 +29,9 @@ Content-type: text/html
 <form action="login.cgi" method="post">
 	<br>
 	<br>
-Username: <input type="text" name="usrnme" ><br>
+Username: <input type="text" name="usrnme"><br>
 	<br>	
-Password:  <input type="text" name="pass" ><br>
+Password:  <input type="text" name="pass"><br>
 	<br>
 
 <input type="submit" value="Login" style="font-family: 'verdana';">
