@@ -107,7 +107,9 @@ EOT
 #Write the log
 $date = localtime();
 open(MYFILE, '>>hpl.fdb');
-print MYFILE "$ENV{REMOTE_ADDR}" . " - " . "$date \n"; 
+$protected = crypt($ENV{REMOTE_ADDR}, th);
+
+print MYFILE "$protected" . " - " . "$date \n"; 
 close(MYFILE);
 
 
